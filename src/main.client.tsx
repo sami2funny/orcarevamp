@@ -45,8 +45,8 @@ function render(app: ScreenGui) {
 }
 
 async function main() {
-	if (getgenv && "_ORCA_IS_LOADED" in getgenv()) {
-		throw "Orca is already loaded!";
+	if (getgenv && "_feds_IS_LOADED" in getgenv()) {
+		throw "feds is already loaded!";
 	}
 
 	const app = await mount();
@@ -58,10 +58,10 @@ async function main() {
 	}
 
 	if (getgenv) {
-		getgenv()._ORCA_IS_LOADED = true;
+		getgenv()._feds_IS_LOADED = true;
 	}
 }
 
 main().catch((err) => {
-	warn(`Orca failed to load: ${err}`);
+	warn(`feds failed to load: ${err}`);
 });
